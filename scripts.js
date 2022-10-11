@@ -3,7 +3,7 @@ var date = new Date;
 var toYear = date.getFullYear();
 document.getElementById("toYear").value=toYear;
 
-var toMonth = date.getMonth()-1;
+var toMonth = date.getMonth()+1;
 document.getElementById("toMonth").value=toMonth;
 
 var toDate = date.getDate();
@@ -21,17 +21,25 @@ function cal(){
     if(toMonth<bMonth){
         toMonth =((toMonth +12)-bMonth);
         toYear = ((toYear -1)-bYear);
-
     }
     else{
-
         toMonth =(toMonth -bMonth);
         toYear = (toYear -bYear);
-
-
     }
+} 
+    else if(toMonth<bMonth){
+
+        toDate = (toDate-bDate);
+        toMonth =((toMonth +12)-bMonth);
+        toYear = ((toYear -1)-bYear);
+   }
+   else{
+        toDate = (toDate-bDate);
+        toMonth =(toMonth -bMonth);
+        toYear = (toYear -bYear);
    }
    document.getElementById("rDate").value=toDate;
    document.getElementById("rMonth").value=toMonth;
    document.getElementById("rYear").value=toYear;
+ 
 }
